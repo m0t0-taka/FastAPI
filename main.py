@@ -1,3 +1,4 @@
+from typing import Optional  # option parameter
 from fastapi import FastAPI
 
 # インスタンス化
@@ -21,11 +22,20 @@ app = FastAPI()
 
 
 # path parameter & query parameter
-@app.get("/countries/{country_name}")
-async def country(country_name: str = "japan", city_name: str = "tokyo"):
-    return {
-        "country_name": country_name,
-        "city_name": city_name
-    }
+# @app.get("/countries/{country_name}")
+# async def country(country_name: str = "japan", city_name: str = "tokyo"):
+#     return {
+#         "country_name": country_name,
+#         "city_name": city_name
+#     }
 # ↑このときのpath
 # http://127.0.0.1:8000/countries/america?city_name=new_york
+
+
+# option parameter（必須でないparameter）
+@app.get("/countries/")
+async def country(country_name: Optional[str] = None, country_no: Optional[int] = None):
+    return {
+        "country_name": country_name,
+        "country_no": country_no
+    }
