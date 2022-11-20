@@ -1,6 +1,6 @@
 from typing import Optional  # option parameter
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 # path parameter
 # @app.get("/countries/{country_name}")  # デコレータ ()内のpathにgetでアクセスがあったら以下を実行
@@ -42,7 +42,7 @@ from pydantic import BaseModel
 # BaseModelを継承したItem classを作成
 # postは以下のようなrequest bodyを作成する必要がある
 class Item(BaseModel):
-    name: str
+    name: str = Field(min_length=4, max_length=12)
     description: Optional[str] = None
     price: int
     tax: Optional[float] = None
