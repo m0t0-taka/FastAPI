@@ -4,6 +4,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")  # デコレータ /にgetでアクセスがあったら以下を実行
-async def index():
-    return {"message": "Hello World"}
+@app.get("/countries/{country_name}")  # デコレータ ()内のpathにgetでアクセスがあったら以下を実行
+async def country(country_name: str):
+    return {"country_name": country_name}
