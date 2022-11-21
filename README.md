@@ -19,3 +19,9 @@
 Uvicorn running on http://127.0.0.1:8000
 
 /docs とすることで自動生成ドキュメントを確認できる
+
+### デプロイ
+
+[Deta](https://www.deta.sh/)
+
+[FastAPI docs](https://fastapi.tiangolo.com/ja/deployment/deta/)
